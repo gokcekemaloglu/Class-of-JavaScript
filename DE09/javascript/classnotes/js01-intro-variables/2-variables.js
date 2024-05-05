@@ -7,16 +7,17 @@
 // ! CONST: Sadece başlangıçta değer atanabilir.
 // ! Sonradan değeri değiştirilemez (non-primitive'ler (array..) hariç).
 
-
-const degiskenAdi="Javascript";
-const sayi=6
+const degiskenAdi = "Javascript";
+const sayi = 6
+// const sayi=7;
+console.log(typeof degiskenAdi);
 console.log(degiskenAdi);
 console.log(typeof sayi);
 
 //degiskenAdi="osman"//Assignment to constant variable.
 //!const ile tanımlanan değişken değiştirilemez
 
-const isTrue=true
+const isTrue=true;
 const isFalse=false
 console.log(typeof isTrue)
 
@@ -32,11 +33,15 @@ dil="java"
 
 console.log(dil);
 
-const sayi2=34;
+let sayi2=34;
+
+sayi2=45;
 
 console.log(sayi2+7);
 
-let sayi3="34";   //tırnakla yazınca string olarak görüyor//
+let sayi3="34";   
+
+//tırnakla yazınca string olarak görüyor//
 
 console.log(sayi3+7);   
 
@@ -53,13 +58,15 @@ console.log(sayi3-4)
 //? - Eğer, değişken fonksiyonların dışında tanımlandı ise tüm her yerden erişilebilir. (Global-scoped).
 //! Günümüzde programcılar global değişken gerekmedikçe VAR ile değişken tanımlamayı seçmemektedir.
 
-// var sayi4=67;
-// sayi2=100;
+var sayi4=67;
+sayi2=100;
 
 console.log("xxxxxxxxxxxxxxxxxxxx");
 
 
 var ilk ="global"
+
+console.log(ilk);
 
 {
     console.log(ilk);
@@ -89,7 +96,7 @@ console.log(first);
     first="hüseyin"
     
     let second=45
-    
+    console.log(second);
 }
 
 console.log(first);
