@@ -33,8 +33,8 @@ console.log(toplam);
 const sayi1="3"
 const sayi2=8
 
-console.log(sayi1+sayi2);
-console.log(sayi1-sayi2);
+console.log(sayi1 + sayi2);
+console.log(sayi1 - sayi2);
 
 
 // ` backticks`  bunun içine ne yazarsan aynısını console'a yazdırır. (Template literals)
