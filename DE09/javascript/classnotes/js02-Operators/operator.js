@@ -53,6 +53,8 @@ const dogumTarihi=1979
 console.log(`${ad} ${soyad} ${dogumTarihi} doğumludur`);
 console.log(`${ad} ${soyad} ${2024 - dogumTarihi} yaşındadır`);
 
+
+
 //? Bazı fonksiyonlar
 
 // Math.floor();  //* her zaman en yakın alt tamsayıya yuvarlar
@@ -62,6 +64,121 @@ console.log(`${ad} ${soyad} ${2024 - dogumTarihi} yaşındadır`);
 
 // Math.random(); //* 0 ve 1 arasında rasgele sayı üretir.
 
+//toFixed(x)//*virgülden sonra x adet basamak bırak demek
+const ab=1.3
+console.log(Math.trunc(ab));
+console.log(Math.floor(ab));
+console.log(Math.ceil(ab));
+console.log(Math.round(ab));
+console.log("************");
+
+const ba=-1.3
+console.log(Math.trunc(ba));
+console.log(Math.floor(ba));
+console.log(Math.ceil(ba));
+console.log(Math.round(ba));
+
+document.write(Math.trunc(ba))
+
+// RANDOM: rastgele
+// rastgele sayı üretmek için kullanılır
+// 0-1 arasında bir sayı üretir
+
+console.log(Math.random());
+console.log(Math.ceil(Math.random()*20));
+
+const randomSayi=Math.random()
+console.log(randomSayi);
+console.log(randomSayi.toFixed(2));
+
+console.log(Math.random().toFixed(4));
+
+//*ARTTIRMA AZALTMA//
+
+let a=5
+
+console.log("ilk" , a++);//5
+console.log("ikinci" , a);//6
+
+let b=a++
+console.log(b);//6
+console.log(a);//7
+
+let c=10
+console.log("ilk" , ++c);//11
+let d=++c
+console.log(d);//12
+console.log(c);//12
+
+let e=33
+console.log(--e);//32
+console.log(e--);//32
+console.log(e);//31
+
+//! e'yi 5 arttır
+// e=e+5 //31
+
+console.log(e+=5);//36
+
+//! e'yi 5 ile çarp
+
+console.log(e*=5);//180
+
+// console.log(number = number +i2) 
+// console.log(number -= i2) 
+// console.log(number *= i2) 
+// console.log(number /= i2)
+// console.log(number %= i2) 
+
+
+//? ÇARPMA ve ÜS ALMA
+
+const PI =3.14
+const r=5
+
+const alan=PI*r**2
+console.log(alan);
+
+
+// Math pow (power) bir sayının kuvvetini almak için kullanılır
+
+console.log(PI*Math.pow(r,2));
+
+//Math.sqrt : verilen değerin karekökünü verir
+
+console.log(Math.sqrt(144));
+console.log(144**(1/2));
+
+//***************MOD ALMA **************/
+
+const number=456
+
+console.log("birler", number%10);//6
+console.log("onlar", Math.trunc(number/10)%10);//5
+console.log("yüzler", Math.trunc(number/100)%10);//4
+
+
+// * =======================================================
+// *                 KARŞILAŞTIRMA OPERATÖRLERİ
+// * =======================================================
+
+const sayi4=4;
+
+console.log(sayi4 == 4);//eşit mi?
+console.log(sayi4 === 4);//eşit mi?
+console.log(sayi4 == "4");//true
+console.log(sayi4 === "4");//false number olan 4 olduğu için false diyor
+
+console.log(sayi4!=5);//true 5 e eşit değil mi
+
+console.log(sayi4 != "4");//false hayır canım eşit demek
+
+console.log(sayi4 > 4);//false
+console.log(sayi4 >= 4);//true
+
+/* ----------------------------------------------------- */
+/*        MANTIKSAL ÖPERATÖRLER (logical operators)      */
+/* ----------------------------------------------------- */
 
 
 
