@@ -275,6 +275,45 @@ let i=+ee
 console.log(typeof i);
 console.log(typeof ee);
 
+//* .toFixed() noktadan sonra kaç basamak alacağımızı belirtir, Sayıyı stringe çevirir
+
+let z=0.345675678
+
+console.log(typeof(z.toFixed(2))); 
+console.log(typeof(+z.toFixed(2))); //+ string i number a çevirir
+
+//* prompt komutu da toFixed gibi kullanılan sayıyı string yapar.
+
+// const age= prompt("lütfen yaşınızı giriniz")
+// console.log(age.keyCode==65); 
+// console.log(typeof age); //string
+
+// const age2= +prompt("lütfen yaşınızı giriniz") //önüne + koyunca string i number yaptı
+// console.log(typeof age2); //number
+
+//* Null Undefined NaN
+
+console.log(typeof null); //object
+let n=null
+
+console.log(Boolean(n)); //false
+
+console.log(null-5); //-5
+
+console.log(null==undefined); //true
+console.log(null===undefined); //false
+
+console.log(Number("asdf")); //NaN
+console.log(Number("1234")); //1234
+console.log(null===null); //true
+
+// !GENEL KÜLTÜR
+
+console.log(Number("0x11"));//x=hexa 16 lık taban 11=1.16^0+1.16^1
+console.log(Number("0b101")); // b=binary 2 lik taban 11=1.2^0+0.2^1+1.2^2
+console.log(Number("0o11")); //o=octal 8 lik taban 11=1.8^0+1.8^1
+
+
 
 
 
