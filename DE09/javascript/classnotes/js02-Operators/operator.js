@@ -176,9 +176,105 @@ console.log(sayi4 != "4");//false hayır canım eşit demek
 console.log(sayi4 > 4);//false
 console.log(sayi4 >= 4);//true
 
-/* ----------------------------------------------------- */
+/* ------------------------------------------------------- */
 /*        MANTIKSAL ÖPERATÖRLER (logical operators)      */
-/* ----------------------------------------------------- */
+/* ------------------------------------------------------- */
+
+console.log("******************");
+
+//?TRUE
+
+console.log(Boolean(5));
+console.log(Boolean(5.8));
+console.log(Boolean(-5.8));
+console.log(Boolean([1,2,5]));
+
+//? 5 FALSY
+
+console.log(Boolean(0));
+console.log(Boolean(null));
+console.log(Boolean(""));
+console.log(Boolean(undefined));
+console.log(Boolean(NaN)); //NaN:Not a number
+
+const v1= false || 0 || 12.6 || false || null
+console.log(v1);//12.6
+console.log(Boolean(v1));//true
+
+const v2= false || 0 || null || undefined || NaN
+console.log(v2);//NaN
+console.log(Boolean(v2));//false
+
+const v3= 5 && 6 && true && 0 && ""
+console.log(v3);//0
+console.log(Boolean(v3));//false
+
+const v4= 5 && 6 && true && -7
+console.log(v4);//-7
+console.log(Boolean(v4));//true
+console.log(!v4);//false  v4'ün değili demek
+
+
+console.log("***************");
+/* ---------------------------------- */
+/*           TİP DÖNÜŞÜMLERİ          */
+/* ---------------------------------- */
+
+const para=Number("1000") + Number("900")
+
+console.log(para);
+
+console.log(para+15);
+console.log(Number(para)+15);
+
+let aa = 10
+let bb = '5'
+
+console.log('Toplama', aa + bb) //105
+console.log('Çıkarma', aa - bb) // 5
+console.log('Çarpma', aa * bb) // 50
+console.log('Bölme', aa / bb) //2
+
+console.log(aa+ Number(bb));//15
+
+console.log(typeof (bb));//string
+console.log(typeof Number(bb));//number
+
+console.log(bb**2);//25
+
+//******* */
+let ee="123.65"
+console.log(parseInt(ee)); //tam kısmı alır number'a çevirir
+console.log(parseFloat(ee)); //string i direk number'a çevirir
+//******* */
+
+
+
+const isim="ipek"
+
+console.log(isim+15);
+console.log(Number(isim)+15);
+
+const sayi="1000"
+
+console.log(sayi+15);
+console.log(String(sayi),15);
+
+// //* .toString() Metodu numberları stringe çevirir
+
+let f=123.45
+
+console.log(f.toString()); //bu satırda string e çevirir
+console.log(f);
+
+//* + ile Number a çevirebiliriz
+
+console.log(+ee);
+let i=+ee
+
+console.log(typeof i);
+console.log(typeof ee);
+
 
 
 
