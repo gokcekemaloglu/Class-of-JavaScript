@@ -16,5 +16,7 @@ console.table([{name:"ipek", age:30},    {name:"ayse",age:45}])
 
 // alert("burası alert")
 
+// PROMPT KULLANIMI 
+
 name1= prompt("adınızı giriniz")
 console.log(name1);
