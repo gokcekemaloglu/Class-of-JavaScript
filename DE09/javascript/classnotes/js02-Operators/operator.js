@@ -17,6 +17,9 @@ console.log(toplam);
 //!bir arttır
 
 toplam++
+
+console.log(toplam);
+
 toplam=toplam+1
 
 console.log(toplam);
@@ -25,7 +28,13 @@ console.log(toplam);
 
 toplam=toplam+10
 
+console.log(toplam);
+
 toplam+=10 //toplam=toplam+10 ikisi aynı şeyi anlatıyor
+console.log(toplam);
+
+toplam+=100
+
 console.log(toplam);
 
 //? + operatörü string concatination işlemi de yapar
@@ -45,6 +54,8 @@ const soyad="sevim"
 console.log(ad + soyad); //erkansevim
 
 console.log("adım soyadım" + " " + ad + " " + soyad);
+
+// ``
 
 console.log(`adım soyadım ${ad} ${soyad}`);
 
@@ -78,7 +89,7 @@ console.log(Math.floor(ba));
 console.log(Math.ceil(ba));
 console.log(Math.round(ba));
 
-document.write(Math.trunc(ba))
+document.write(Math.trunc(ba)) //ekranda gördüğumuz -1 yazdırır
 
 // RANDOM: rastgele
 // rastgele sayı üretmek için kullanılır
@@ -87,7 +98,7 @@ document.write(Math.trunc(ba))
 console.log(Math.random());
 console.log(Math.ceil(Math.random()*20));
 
-const randomSayi=Math.random()
+const randomSayi=Math.random();
 console.log(randomSayi);
 console.log(randomSayi.toFixed(2));
 
@@ -103,6 +114,8 @@ console.log("ikinci" , a);//6
 let b=a++
 console.log(b);//6
 console.log(a);//7
+console.log(b);
+console.log(a);
 
 let c=10
 console.log("ilk" , ++c);//11
@@ -137,7 +150,7 @@ const PI =3.14
 const r=5
 
 const alan=PI*r**2
-console.log(alan);
+console.log("alan", alan);
 
 
 // Math pow (power) bir sayının kuvvetini almak için kullanılır
@@ -171,7 +184,8 @@ console.log(sayi4 === "4");//false number olan 4 olduğu için false diyor
 
 console.log(sayi4!=5);//true 5 e eşit değil mi
 
-console.log(sayi4 != "4");//false hayır canım eşit demek
+console.log(sayi4 != "4");//false hayır canım denk demek
+console.log(sayi4 !== "4");//true evet canım eşit değil
 
 console.log(sayi4 > 4);//false
 console.log(sayi4 >= 4);//true
@@ -235,7 +249,7 @@ console.log('Çıkarma', aa - bb) // 5
 console.log('Çarpma', aa * bb) // 50
 console.log('Bölme', aa / bb) //2
 
-console.log(aa+ Number(bb));//15
+console.log(aa + Number(bb));//15
 
 console.log(typeof (bb));//string
 console.log(typeof Number(bb));//number
@@ -279,8 +293,10 @@ console.log(typeof ee);
 
 let z=0.345675678
 
-console.log(typeof(z.toFixed(2))); 
-console.log(typeof(+z.toFixed(2))); //+ string i number a çevirir
+console.log(z.toFixed(2));
+
+console.log(typeof (z.toFixed(2))); 
+console.log(typeof (+z.toFixed(2))); //+ string i number a çevirir
 
 //* prompt komutu da toFixed gibi kullanılan sayıyı string yapar.
 

@@ -29,13 +29,19 @@ console.log(typeof isTrue)
 
 let dil="javascript";
 
+console.log(dil);
+
 dil="java"
 
 console.log(dil);
 
 let sayi2=34;
 
+console.log(sayi2);
+
 sayi2=45;
+
+console.log(sayi2);
 
 console.log(sayi2+7);
 
@@ -96,6 +102,7 @@ console.log(first);
     first="hüseyin"
     
     let second=45
+    
     console.log(second);
 }
 
@@ -105,6 +112,8 @@ console.log(first);
 //blocktaki elemena dışarıda erişemeyiz (cons velet için)
 
 console.log("xxxxxxxxxxxxxxxxx")
+
+//! CONST SCOPE
 
 const erste="mustafa"
 
@@ -116,7 +125,6 @@ console.log(erste);
 
     const zweite="ayca"
     console.log(zweite);
-
 
 }
 

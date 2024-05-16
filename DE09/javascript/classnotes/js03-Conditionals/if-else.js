@@ -33,7 +33,7 @@ let sonuc;
 //     if (sayi2!=0) {
 //             sonuc = sayi1 / sayi2
 //     } else {
-//         alert("pada sıfır olamaz")
+//         alert("payda sıfır olamaz")
 //     }       
 // } else {
 //     alert("yanlış işlem girdiniz")
