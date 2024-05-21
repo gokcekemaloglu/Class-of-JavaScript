@@ -38,7 +38,7 @@ console.log(toplamlar(6));
 
 //*ORNEK: Girilen n. terimdeki Fibonacci sayısını yazdıran fonksiyonu recusive olarak kodlayınız.
 
-console.log("***********5-RECURSION********");
+console.log("***********4-RECURSION********");
 
 //? FIBONACCI terimleri:   1, 1, 2, 3, 5, 8, 13, 21, 34 ...
 //!fibonacci dizisindeki  n. terimi  bulma fonksiyonu
