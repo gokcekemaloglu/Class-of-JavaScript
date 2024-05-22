@@ -16,7 +16,7 @@ const scopeFunction = () => {
     first = 8
 
     //let sayesinde yeni bir değişken oluşturuldu ve dışarıdan erişilemez
-    let second=1234 //function scope (func içinde yaoılan func içinde kalır)
+    let second=1234 //function scope (func içinde yapılan func içinde kalır)
     console.log(second);
 
     let fourth=second + first //1234+8

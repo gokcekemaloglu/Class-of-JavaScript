@@ -36,7 +36,7 @@
 
 // console.log(primeNumber?"asaldır" :  "asal değildir");
 
-//veya bu şekilde de olabilir ama yukarıdaki çözğm daha kullanışlı
+//veya bu şekilde de olabilir ama yukarıdaki çözüm daha kullanışlı
 
 // let sayi=51
 // let primeNumber=false
