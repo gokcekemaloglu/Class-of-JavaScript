@@ -1,19 +1,23 @@
-// let isimler = ["harvey", "ashley","tolga", "fatih", "gokce"]
-// let bos = []
 
 
-// console.log(typeof(isimler[0]));
-// console.log(isimler.length);
-// console.log(bos.length);
-// console.log(Boolean(bos));
+let isimler = ["harvey", "ashley","tolga", "fatih", "gokce"]
+let bos = []
 
-// bos.length ? console.log("veri geliyor") : console.log("veri gelmiyor."); 
+
+console.log(typeof(isimler[0]));
+console.log(isimler.length);
+console.log(bos.length);
+console.log(Boolean(bos));
+
+bos.length ? console.log("veri geliyor") : console.log("veri gelmiyor."); 
+console.log("*********************");
 
 // for, while, do while, forEach dizilerin elemanlarını yazmak için yöntemlerdir.
 
 // for (let i = 0; i < isimler.length; i++) {
 //     console.log(isimler[i]);
     
+console.log("*********************");
 // }
 
 // veya
@@ -30,6 +34,8 @@
 
 // isimler.forEach(isim=>console.log(isim)) 
 
+
+console.log("*********************");
 
 //! 1- Belirli bir string ifadenin içindeki sesli harfleri bulan fonksiyonu yazınız?
 
@@ -51,6 +57,7 @@
 // console.log(findVowels("bugün hava çok güzel"))
 
 
+console.log("*********************");
 // veya başka çözüm
 
 // let str = "Uzun zaman once uzak bir ulkede"

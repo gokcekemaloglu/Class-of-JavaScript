@@ -93,7 +93,7 @@ console.log(kelime2.includes(4) ? "evet rakam var": "rakam yok");
 
 const kelime3 = "to, be or not to be, 5 that is The questions.";
 
-console.log(kelime3.search(/[A-Z]/));//index döndürür 31
+console.log(kelime3.search(/[A-Z]/));//index döndürür 31. harf büyük harf
 console.log(kelime3.search(/[a-z]/));//
 console.log(kelime3.search(/[0-9]/));//
 console.log(kelime3.search(/[0-9a-zA-Z]/));//ilk bulduğu küçük harf o yüzden  0 döndürdü
