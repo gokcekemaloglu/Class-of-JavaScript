@@ -244,15 +244,27 @@ const salaries = [3000, 5000, 4000, 6000, 7500];
 
 // console.log(salaries.reduce((toplam,eleman)=>toplam + eleman, 0)); 
 // Alttaki kodu yukarıdaki gibi görür ve toplam değişkenine 0'ı assign eder, yazmamıza gerek yok
-console.log(salaries.reduce((toplam,eleman)=>toplam + eleman)); 
+const sonuc = salaries.reduce((toplam,eleman)=>toplam + eleman)
+console.log(sonuc); 
 
 console.log("*******************************");
 
 //! forEach metodu dizilerde kullanılabilir, reduce tek bir eleman döndürdüğü için, burada forEach kullanamayız
 
-
 console.log(salaries.reduce((acc,current)=>acc*current));
 
+console.log("*******************************");
+
+//* Örnek: 
+// alttaki 1'den 7'ye kadar olan sayıların bulunduğu bir dizi verilmiş, ancek bir eleman unutulmuş, unutulan elemanı bulunuz.
+
+const nummern=[5, 1, 4, 7, 2, 3]
+
+let total=((nummern.length+1)*(nummern.length+2))/2
+
+const diziToplam = nummern.reduce((acc,curr)=>acc+curr)
+
+console.log(total - diziToplam); //unuttuğum değer
 
 console.log("*******************************");
 
@@ -262,12 +274,6 @@ console.log("*******************************");
 
 
 console.log("*******************************");
-
-
-
-
-
-
 
 
 
