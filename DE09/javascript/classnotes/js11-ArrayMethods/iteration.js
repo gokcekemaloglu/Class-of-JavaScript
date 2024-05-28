@@ -57,10 +57,13 @@ console.log("**************************");
 
 //* Örnek: Meyveler dizisindeki elemanların harf sayısı 3'ten büyük olan meyveleri büyük harfe çevir
 
+const meyveler = ["elma", "erik", "muz", "karpuz"];
 
-
-
-
+meyveler.forEach((meyve)=>{
+    if (meyve.length>3) {
+        console.log(meyve.toUpperCase()); 
+    }else{console.log(meyve);}
+})
 
 
 console.log("**************************");
@@ -158,6 +161,46 @@ prices.filter((a)=> a<200).forEach((b)=>console.log(b))
 console.log(prices);
 
 prices.filter((a)=> a<200).map((c)=>c*2).forEach((a)=>console.log(a))
+
+
+console.log("*******************************");
+
+ //* Örnek:
+
+ const text = "Clarusway Online Career IT TraininG School ThankS for time";
+
+ // ! yukarıdaki string i array e çevirip bütün kelimelerin harflerini büyüt
+
+ text.split(" ").map((a)=>a.toUpperCase()).forEach((a)=>console.log(a))
+ 
+//  !yukarıda array e döndürdüğümüz string cümledeki, sadece T ile başlayan kelimelerin ilk harfini küçült, diğer harflerini normal bırakarak yazdır, 
+
+ text.split(" ").filter((a)=>a.startsWith("T")).map((a)=>a.slice(0,1).toLowerCase()+a.slice(1)).forEach((a)=>console.log(a))
+
+
+console.log("*******************************");
+
+//? Örnek: n harfiyle biten isimleri tersten yazdırıp yeni bir diziye atın
+
+const names2 = ["ayca","kemal","mustafa","ayse","fatih","halil",  "erkan","umut","gökçe","mehmet","rengin"]
+
+const newNAme = names2.filter((a)=>a.endsWith("n")).map((a)=>a.split("").reverse().join(""))
+
+console.log(newNAme);
+
+
+console.log("*******************************");
+
+//* ======================================================
+//*                       PIPELINE (Yukarıda da örnekleri var)
+//* ======================================================
+
+//!slide daki soru, pipeline olmazsa böyle uzun uzun if le çözeriz
+//* Fiyatı 100 TL den fazla olanlara %10 zam, 100 tl ve 100 TL den az olanlara ise %15 zam yapılmak isteniyor. Ayrıca, zamlı olan yeni değerleri örnekteki gibi diziye saklamak istiyoruz.
+
+// const fiyatlar = [100, 250, 50, 90];
+
+
 
 
 console.log("*******************************");
