@@ -195,13 +195,41 @@ console.log("*******************************");
 //*                       PIPELINE (Yukarıda da örnekleri var)
 //* ======================================================
 
-//!slide daki soru, pipeline olmazsa böyle uzun uzun if le çözeriz
+//! slide daki soru, pipeline olmazsa böyle uzun uzun if le çözeriz
+
 //* Fiyatı 100 TL den fazla olanlara %10 zam, 100 tl ve 100 TL den az olanlara ise %15 zam yapılmak isteniyor. Ayrıca, zamlı olan yeni değerleri örnekteki gibi diziye saklamak istiyoruz.
 
-// const fiyatlar = [100, 250, 50, 90];
+const fiyatlar2 = [100, 250, 50, 90];
+
+
+//! 1.Yol: map + if ile
+
+const yeniDizi = fiyatlar2.map((a)=>{
+    if (a>100) {
+       return Math.round(a*1.1)
+    }else{
+       return Math.round(a*1.15)
+    }
+    
+})
+console.log(yeniDizi);
 
 
 
+console.log("*******************************");
+
+//! 2.Yol: 
+
+const yeniDizi2 = fiyatlar2.map((a)=>a>100 ? a*1.1 : a*1.15).forEach((a)=>console.log(Math.round(a)))
+
+console.log("**********************");
+
+//! 3.Yol: 
+
+const zengin = fiyatlar2.filter((a)=>a>100).map((a)=>a*1.1)
+const fakir = fiyatlar2.filter((a)=>a<=100).map((a)=>a*1.15)
+
+console.log(zengin.concat(fakir));
 
 console.log("*******************************");
 
