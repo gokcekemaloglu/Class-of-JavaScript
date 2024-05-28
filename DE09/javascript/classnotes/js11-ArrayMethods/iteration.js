@@ -233,6 +233,36 @@ console.log(zengin.concat(fakir));
 
 console.log("*******************************");
 
+//* ======================================================
+//*                      REDUCE tek bir eleman döndürür
+//*               reduce(accumulator, currentValue);
+//* ======================================================
+
+//* Örnek: salaries dizisindeki maaşları toplayınız (reduce metodu kullanın)
+
+const salaries = [3000, 5000, 4000, 6000, 7500];
+
+// console.log(salaries.reduce((toplam,eleman)=>toplam + eleman, 0)); 
+// Alttaki kodu yukarıdaki gibi görür ve toplam değişkenine 0'ı assign eder, yazmamıza gerek yok
+console.log(salaries.reduce((toplam,eleman)=>toplam + eleman)); 
+
+console.log("*******************************");
+
+//! forEach metodu dizilerde kullanılabilir, reduce tek bir eleman döndürdüğü için, burada forEach kullanamayız
+
+
+console.log(salaries.reduce((acc,current)=>acc*current));
+
+
+console.log("*******************************");
+
+
+
+
+
+
+console.log("*******************************");
+
 
 
 
