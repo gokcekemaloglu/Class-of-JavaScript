@@ -133,7 +133,7 @@ console.log("**************************");
 console.log("*************************");
 
 
-//! Bir öğe dizisini alan, tüm yinelenen öğeleri kaldıran ve eski diziyle aynı sırada yeni bir dizi döndüren bir fonksiyon oluşturan program
+//! 4-Bir öğe dizisini alan, tüm yinelenen öğeleri kaldıran ve eski diziyle aynı sırada yeni bir dizi döndüren bir fonksiyon oluşturan program
 // removeDuplicated([1,0,1,0,1]) // Output [1,0]
 // removeDuplicated(["the","small","cat","the","cat"]) // ouput["the","small","cat"]
 
@@ -190,7 +190,7 @@ findSame(arr);
 
 console.log("*************************");
 
-//!Bir dizide ilk harfi A ile başlayan elemanları yeni bir diziye alan fonksiyon 
+//! 5-Bir dizide ilk harfi A ile başlayan elemanları yeni bir diziye alan fonksiyon 
 
 //* 1. Yol:
 
@@ -231,9 +231,81 @@ words.filter((a)=>{
 })
 console.log(newArr1);
 
+console.log("*************************");
+
+function filterWords(arr) {
+    const newArr2=arr.filter((word)=> word[0]==="A")
+    return newArr2
+}
+
+console.log(filterWords(words));
+
+console.log("*************************");
+
+//! 6-bir dizide verilen  maaşlara %10 zam yapılacak ama hala 20000 altında kalanlara ek ödeme planlanacak
+// a- Kaç kişi zam olsa bile 20000 altında kalıyor
+
+//* 1.yol
+
+
+let salaries=[18000,13000,17000,24000,18500,21000,19300]
+
+function asgari(maas) {
+   const maasA = maas.map((a)=>(a*1.1).toFixed(2)).filter((a)=> a<20000)
+
+    return maasA
+}
+ console.log(asgari(salaries));
+
+console.log("*************************");
+
+//* 2.yol
+
+let belowunder20K = salaries.filter(salary => salary * 1.1 <20000).length
+
+console.log(belowunder20K);
+
 
 
 console.log("*************************");
+
+// b- Maaşı zamlı halde 20000in altında kalanlara patronumuz belki bir güzellik yapar. 20000 altında kalanları 20000'e tamamlayabilir ama ne kadar bütçe ayırmalı
+
+const butce= salaries.filter((b)=> b*1.1 < 20000).map((a)=>Math.round(20000-(a*1.1))).reduce((a,b)=>a+b)
+
+console.log(butce);
+
+console.log("*************************");
+
+//* 2.Yol
+
+let addBudget=salaries.map((salary)=>{
+    let increased = salary * 1.1
+    return increased < 20000 ? 20000-increased : 0
+}).reduce((sum,payment)=> sum + payment ,0)
+
+console.log(addBudget);
+
+console.log("*************************");
+
+// EXTRA QUESTIONS
+
+//!1-Bu şekilde girilen stringi "altı,bir,iki,dört,beş,üç,yedi,sekiz,dokuz"
+//! 612453789   bu hale dönüştüren program
+
+
+console.log("*************************");
+//!2-Bir dizi içindeki sayıları asal olanlarını filtreleyen bir  fonksiyonu oluşturun.(filter ile yapılması önerilen)
+
+const numbers1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+console.log("*************************");
+//!3-Bir diziyi tersine çeviren bir map fonksiyonu oluşturun. 
+const originalArray = [1, 2, 3, 4, 5];
+
+console.log("*************************");
+//!4 -verilen sayıyı yazıya çeviren program
+
 
 
 
