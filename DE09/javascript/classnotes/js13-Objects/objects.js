@@ -165,6 +165,12 @@ console.log(people);
 
 console.log("**************************");
 
+//* Ornek yası 33 ün üstünde olan kişilerin name lerini listele
+
+people.filter((a)=>a.age>33).forEach((a)=>console.log(a.name))
+
+console.log("**************************");
+
 
 //* Örnek1: people dizisindeki job'ları tek satırlık bir işlemle göster
 
