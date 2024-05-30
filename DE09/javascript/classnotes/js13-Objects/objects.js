@@ -161,7 +161,7 @@ const people = [
       age: 24,
     }]
 
-    console.log(people);
+console.log(people);
 
 console.log("**************************");
 
@@ -214,14 +214,14 @@ console.log(people);
 console.log("**************************");
 
 
-  //* Ornek5 her elemanın name ini büyük harfli yaz, yaslarını 2 kat yap, job larının önüne senior kelimesi ekleyelim ve bunları yeni bir diziye atalım
+//* Ornek5 her elemanın name ini büyük harfli yaz, yaslarını 2 kat yap, job larının önüne senior kelimesi ekleyelim ve bunları yeni bir diziye atalım
 
-  const yeniPeople2 = people.map((person)=>({
+const yeniPeople2 = people.map((person)=>({
     name: person.name.toUpperCase(),
     age:person.age*2,
     surname: person.surname,
     job: "senior " + person.job
-  }))
+}))
 
 console.log(yeniPeople2);
 console.log(people);
@@ -230,26 +230,93 @@ console.log("**************************");
 
 //* ornek6 people dizisine yeni object veri ekleyelim
 
-people.push({name: "Ahmet", surname: "Kaya", age: 25, job: "Developer"})
+people.push({name: "Ipek", surname: "Bilir", age: 44, job: "Developer"})
 console.log(people);
 
 console.log("**************************");
 
- //* ornek7: Developer olanların adlarını ve yaşlarını yeni bir object olarak saklayın (key'lerini de değiştirelim)
+//* ornek7: Developer olanların adlarını ve yaşlarını yeni bir object olarak saklayın (key'lerini de değiştirelim)
 
- const yeni=people.filter((kisi)=>kisi.job=="developer").map((a)=>({
+const yeni=people.filter((kisi)=>kisi.job=="developer").map((a)=>({
     isim:a.name,
     yas:a.age
- }))
+}))
 
- console.log(yeni);
+console.log(yeni);
 console.log("**************************");
 
 //* Ornek8: ortalama yasi hesaplayiniz.
 
-console.log(people.reduce((toplam,eleman)=>toplam+eleman.age,0)); 
+console.log(people.reduce((toplam,eleman)=>toplam+eleman.age,0)/people.length); 
 
 console.log("**************************");
+
+//?    nested objects
+
+const menschen = {
+    person1: {
+      name: "Can",
+      surname: "Canan",
+      dob: "1990",
+      job: "developer",
+      salary: "140000",
+      drivingLicense: true,
+    },
+    person2: {
+      name: "John",
+      surname: "Sweet",
+      dob: "1990",
+      job: "tester",
+      salary: "110000",
+      drivingLicense: false,
+    },
+    person3: {
+      name: "Steve",
+      surname: "Job",
+      dob: "2000",
+      job: "developer",
+      salary: "90000",
+      drivingLicense: true,
+    },
+};
+
+//! FOR - IN kullanılabilir, index sonuçta. Ama for of kullanılamaz , dizilerde verileri almak için itere eden for of object te çalışmaz
+//!!!!JavaScript'te, iterable protokolü uygulamadıkça Objects iterable değildir. Bu nedenle, bir object in özellikleri üzerinde iterate yapmak için for…of (forEach, map, filter da) kullanamazsınız. sadece klasik for döngüsü ve for in kullanılabilir
+
+//! FOR IN
+
+for (let i in menschen){
+    console.log(i);
+
+    console.log(menschen[i]);
+    // console.log(menschen.i);  
+    console.log(menschen[i].name);
+}
+
+
+console.log("**************************");
+
+//! FOR OF
+
+// for (let i of menchen){
+//     console.log(i); // menschen is not iterable
+// }
+
+for(let i of Object.keys(menschen)){
+    console.log(i); //person1,person2,...
+
+    console.log(menschen[i]);
+    console.log(menschen[i].name);
+}
+
+console.log(Object.values(menschen));//bütün süslüleri diziye attı
+
+for (let i of Object.values(menschen)) {
+  console.log(i);//bütün süslüleri getirdi
+}
+
+console.log("**************************");
+
 
 
 
