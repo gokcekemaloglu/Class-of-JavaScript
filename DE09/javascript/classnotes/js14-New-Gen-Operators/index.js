@@ -415,3 +415,4 @@ for ( let v of Object.values(sahislar)){
 }
 
 console.log("*********************");
+
