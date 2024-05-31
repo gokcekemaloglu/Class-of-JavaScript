@@ -185,40 +185,233 @@ const objGoster = function () {
       age: 40,
     };
 };
-  
+
+// console.log(objGoster());
+
 let { name, surname, job, age } = objGoster();
 
+console.log(name);
+console.log("Age", ++age);
+
+console.log("******************");
+
+//?Fonksiyon Parametresi
+
+const data = {
+  id: "123",
+  desc: "This is top secret information",
+  createdTime: "1980",
+};
+
+const printData = (data) => {
+  console.log(`${data.id} - ${data.desc} - ${data.createdTime}`);
+};
+
+const printDataDestr = (data) => {
+  const { id, desc, createdTime } = data;
+  console.log(`${id} - ${desc} - ${createdTime}`);
+};
+
+const printDataAir = ({ id, desc, createdTime }) => {
+  console.log(`${id} - ${desc} - ${createdTime}`);
+};
+
+printData(data)
+printDataDestr(data)
+printDataAir(data)
 
 console.log("*********************");
-
 
 //* =============================================
 //*  DESTRUCTURING (ARRAY)
 //* =============================================
 
+const people = ["Ali", "Veli", "Harvey", "Ashley"]
 
+console.log(people[0]);
+
+let ali = people[0]
+
+console.log(ali);
+
+console.log("*********************");
+//veya
+
+const [kisi1, kisi2, , kisi4] = people
+console.log(kisi1, kisi2,  kisi4);
 
 console.log("*********************");
 //* ==============================================
 //*  REST (...)
 //* =============================================
 
+//? REST operatoru kullanici tarafindan girilen degerleri dizi
+//? icerisine konumlandirir. Cesitli kullanim alanlari vardir.
 
+//! 1- Bir dizi veya object'deki bazi degerlerden geri kalanlarini ayri dizi yada objelere kopyalanmasini saglayabilir.
+
+//?ARRAY
+
+const araclar = ["Kamyon", "Tır", "Kamyonet", "Motosiklet", "Minibüs", "Taxi"];
+
+ const [arac1, ,arac2, arac3, ...binekAraclar] = araclar
+ console.log(arac2, binekAraclar); // 
+
+console.log("*********************");
+
+//?Object
+
+const person = {
+  ad: "Hazel",
+  soyad: "Nut",
+  is: "team lead",
+  yas: 40,
+};
+
+const {ad, soyad, ...geriKalan } = person
+
+console.log(ad, geriKalan);
+
+console.log("*********************");
+
+//! 2- Bir fonksiyonun argumanlarini diziye cevirmek icin kullanilabilir.
+
+const topla = (a,b, ...kalan) => a + b
+console.log(topla(1,5,7,9,3));
+
+console.log("*********************");
+
+const toplam = (sayılar) => {
+  return sayılar
+}
+console.log(toplam(1,5,7,9,3));
+
+const toplam1 = (...sayılar) => {
+  return sayılar.reduce((a,b)=>a+b)
+}
+
+console.log("Toplam", toplam1(1,5,7,9,3));
+
+//? REST (...) ile non-iterable olan sayilari iterable hale (diziye) cevirmiş olduk.
 
 console.log("*********************");
 //* =============================================
 //*  SPREAD (...)
 //* =============================================
 
-console.log("*********************");
+//? Spread operatoru ise iterables olan bir elemani bireysel degerler haline getirir.
 
+const ucanAraclar = ["helicopter", "drone", "ucak", "fuze"];
+const karaAracları = ["araba", "bisiklet", "marti"];
 
-
-
-
-
-
-
+const tasitlar = [ucanAraclar,karaAracları]
+console.log(tasitlar)
 
 console.log("*********************");
 
+const flatTasitlar = [...ucanAraclar,...karaAracları]
+console.log(flatTasitlar);
+
+console.log("*********************");
+
+//? Ornek
+
+const cumle = "Uzun ince bir yoldayım"
+const cumleDizisi = [...cumle]
+console.log(cumleDizisi);
+
+console.log("*********************");
+
+//? Ornek
+
+const numbers = [1, 3, 4, 5]
+
+console.log(Math.max(1, 3, 4, 5)); // ikisi de aynı şey
+console.log(Math.max(...numbers));
+console.log(Math.max(...numbers, 91));
+
+console.log("*********************");
+
+//? nested
+
+const sahislar = {
+  sahis1: {
+    name: "Can",
+    surname: "Canan",
+    dob: "1990",
+    job: "developer",
+    salary: "140000",
+    drivingLicense: true,
+  },
+  sahis2: {
+    name: "John",
+    surname: "Sweet",
+    dob: "1990",
+    job: "tester",
+    salary: "110000",
+    drivingLicense: false,
+  },
+  sahis3: {
+    name: "Steve",
+    surname: "Job",
+    dob: "2000",
+    job: "developer",
+    salary: "90000",
+    drivingLicense: true,
+  },
+};
+
+//? Javascript'de Objeler default olarak iterable degildir.
+//? Ama for in ve for of donguleri ile itere edilebilirler.
+
+//? Objelerin key ve value'larini okumak icin built-in metotlar vardir.
+//? Bu mettotlar aslinda objelerin key ve/veya value'lari bir dizi olarak dondurur.
+
+
+//! FOR - IN
+
+// object'in indislerinde dönüyoruz
+
+for(let s in sahislar) {
+  // console.log(s); // sahis1, sahis2, sahis3
+  // console.log(sahislar[s]);
+  console.log(sahislar[s].salary);
+}
+
+console.log("*********************");
+
+//? Kullanışlı Object metotları
+
+//? Object.keys() => objenin key'lerini bir dizi olarak dondurur.
+//? Object.values() => objenin value'larını bir dizi olarak dondurur.
+
+console.log(Object.keys(sahislar)) //? objenin key'leri array olarak doner
+console.log(Object.values(sahislar)) //? objenin value'larını array olarak doner
+console.log(Object.values(sahislar.sahis2)) //? objenin value'larını array olarak doner
+console.log(Object.entries(sahislar)) //? objenin key-value ciftini array olarak doner
+console.log(Object.entries(sahislar.sahis1)) //? objenin key-value ciftini array olarak doner
+
+console.log("*********************");
+
+//! FOR - OF
+
+// iterable demek dizinin içinnde dönmesi lazım demek
+// for(let x of iterable ) {
+// //*   code block to be executed
+// }
+//? for-of dongusu iterable objeler icin kullanilir.
+//? for-of dongusu objenin key-value ciftini okumak icin kullanilir.
+//? for-of dongusu objenin value'larını okumak icin kullanilir.
+
+for (const key of Object.keys(sahislar)) {
+  console.log(sahislar[key].salary);  //! square bracket
+}
+
+console.log("*********************");
+
+for ( let v of Object.values(sahislar)){
+  console.log(v);
+  console.log(v.name);
+}
+
+console.log("*********************");
