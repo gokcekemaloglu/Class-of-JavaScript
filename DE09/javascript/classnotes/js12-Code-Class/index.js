@@ -293,15 +293,70 @@ console.log("*************************");
 //!1-Bu şekilde girilen stringi "altı,bir,iki,dört,beş,üç,yedi,sekiz,dokuz"
 //! 612453789   bu hale dönüştüren program
 
+const string="altı,bir,iki,dört,beş,üç,yedi,sekiz,dokuz"
+let newNumberArray=[]
+
+const newArray=string.split(",")
+console.log(newArray);
+
+for (let i of newArray) {
+    
+    if (i==="bir") {
+        newNumberArray.push(1)
+    } else if(i==="iki") {
+        newNumberArray.push(2)
+    } else if(i==="üç") {
+        newNumberArray.push(3)
+    } else if(i==="dört"){
+        newNumberArray.push(4)
+    } else if(i==="beş") {
+        newNumberArray.push(5)
+    } else if(i==="altı") {
+        newNumberArray.push(6)
+    } else if(i==="yedi") {
+        newNumberArray.push(7)
+    } else if(i==="sekiz") {
+        newNumberArray.push(8)
+    } else  {
+        newNumberArray.push(9)
+    }
+    
+} 
+
+console.log(newNumberArray.join(""));
+
+
 
 console.log("*************************");
 //!2-Bir dizi içindeki sayıları asal olanlarını filtreleyen bir  fonksiyonu oluşturun.(filter ile yapılması önerilen)
 
 const numbers1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+
+const prime = numbers1.filter((a)=>{
+    if (a < 2) {
+        return false
+    }
+    for (let i = 2; i < a ; i++) {
+        if (a % i === 0) {
+            return false
+        }
+        
+    }
+    return true
+})
+console.log(prime);
+
 console.log("*************************");
 //!3-Bir diziyi tersine çeviren bir map fonksiyonu oluşturun. 
 const originalArray = [1, 2, 3, 4, 5];
+
+// let array=[]
+
+const reverse= originalArray.map((a,b,c)=>c.length-b)
+
+console.log(reverse);
+
 
 console.log("*************************");
 //!4 -verilen sayıyı yazıya çeviren program
