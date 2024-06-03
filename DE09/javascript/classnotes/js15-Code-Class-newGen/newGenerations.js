@@ -1244,6 +1244,75 @@ console.clear()
 
 products.filter((a)=> (a.id===1)).forEach(({title, description, price, category})=>console.log(`${title} ${description} ${price} ${category}`))
 
+console.log("**************************");
+
+products.filter(({id})=> (id===1)).forEach(({title, description, price, category})=>console.log(`${title} ${description} ${price} ${category}`))
+
+console.log("**************************");
+
+// ! c laptopların adını ve fiyatlarını listeleyelim
+
+products.filter(({category})=> (category==="laptops")).forEach(({title,  price})=>console.log(`${title} -- ${price} `))
+
+console.log("**************************");
+
+//! d- Firmamız home-decoration categorisine sahip ürünleri ayrı bir sitede yayınlama kararı aldığı için bu ürünleri portföyünden çıkartacak. Bu karategorideki ürünleri listeden çıkaralım.
+
+products = products.filter(({category})=> (category!=="home-decoration"))
+
+console.log(products);
+
+console.log("**************************");
+
+//! Kullanıcının seçtiği ürünü (id si girilen ürünü) silelim  -delete
+
+// let id = +prompt("Lütfen bir ID giriniz")
+
+// products.filter((a)=>a.id !== id).forEach((a)=>console.log(a.id))
+
+console.log("**************************");
+
+console.clear();
+//! Yeni ürün ekleyelim - create
+
+const addProduct = {
+    id: products.length + 1,
+    title: "iPhone 10",
+    description: "An apple mobile which is nothing like apple",
+    price: 1299,
+    discountPercentage: 14.96,
+    rating: 4.89,
+    stock: 73,
+    brand: "Apple",
+    category: "smartphones",
+    thumbnail: "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
+    images: [
+      "https://cdn.dummyjson.com/product-images/1/1.jpg",
+      "https://cdn.dummyjson.com/product-images/1/2.jpg",
+      "https://cdn.dummyjson.com/product-images/1/3.jpg",
+      "https://cdn.dummyjson.com/product-images/1/4.jpg",
+      "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
+    ],
+  };
+//* 1. Yol
+//   products.push(addProduct)
+
+//* 2. Yol
+
+products=[...products, addProduct]
+
+console.log(products)
+
+console.log("**************************");
 
 
+const newp = products.map((a)=>({
+    ...a,
+    price:a.price-(a.price*(a.discountPercentage/100)),
+    not:"bla bla"
+}))
 
+console.log(newp);
+
+
+console.log("**************************");
