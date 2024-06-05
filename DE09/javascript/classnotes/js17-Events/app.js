@@ -146,29 +146,42 @@ buton2.addEventListener("click",()=>{
 
 //! Input Örneği
 
-let alan = document.getElementById("username")
-let buton3 = document.getElementById("login")
-let user = document.getElementById("displayUsername")
+// let alan = document.getElementById("username")
+// let buton3 = document.getElementById("login")
+// let user = document.getElementById("displayUsername")
 
-// alan.addEventListener("input",()=>{
+// // alan.addEventListener("input",()=>{
+// //     let username = alan.value
+// //     user.textContent = `Girdiğiniz kullanıcı adı: ${username}`
+// // })
+
+// let usr = `Mark`
+
+// buton3.addEventListener("click",()=>{
 //     let username = alan.value
-//     user.textContent = `Girdiğiniz kullanıcı adı: ${username}`
+
+//     if (username === usr) {
+//         user.textContent = `Girdiğiniz kullanıcı adı: ${username}`
+//         alan.value=``
+//     } else {
+//         user.textContent = `Girdiğiniz kullanıcı adı yanlış, lütfen tekrar deneyin`
+        
+//     }
 // })
 
-let usr = `Mark`
+const numbers = document.querySelectorAll('.number') //Array benzeri Nodelist döndürür
 
-buton3.addEventListener("click",()=>{
-    let username = alan.value
+// console.log(numbers);
 
-    if (username === usr) {
-        user.textContent = `Girdiğiniz kullanıcı adı: ${username}`
-        alan.value=``
-    } else {
-        user.textContent = `Girdiğiniz kullanıcı adı yanlış, lütfen tekrar deneyin`
-        
-    }
+numbers.forEach((number, index)=>{
+    number.addEventListener('click',()=>{
+        if (number.textContent === 'X') {
+            number.textContent = index + 1
+        } else {
+            number.textContent = 'X'
+        }
+    })
 })
-
 
 
 
