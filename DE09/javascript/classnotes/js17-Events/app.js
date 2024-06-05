@@ -75,6 +75,40 @@ let sonuc = document.getElementById("result")
 
 //? Random background color
 
+//random renk
+function getRandomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+const buton2 = document.getElementById("colorButton")
+
+const colors = []
+const colorL = document.getElementById("colorList")
+
+buton2.addEventListener("click",()=>{
+    let renk = getRandomColor()
+    // console.log(renk);
+    const colorObject = {color: renk}
+    colors.push(colorObject)
+    console.log(colors);
+    document.body.style.backgroundColor = renk
+
+    //yeni rengi ekrana listeleme
+    const listItem = document.createElement("li")
+    listItem.style.backgroundColor = renk
+    listItem.textContent = renk
+    listItem.addEventListener("click",()=>{
+        document.body.style.backgroundColor = renk        
+    })
+    
+    colorL.appendChild(listItem) // sona ekle
+    // colorL.prepend(listItem) // öne ekle
+})
+
+
 
 
 
