@@ -15,7 +15,7 @@ js.onmouseout = () => {
     badi.style.background="orange"
 }
 
-//*example2 onclick ondoubleclick (ondblclick)
+//*example2 onclick ondoubleclick (ondblclick bazen bu kodu tanıyor)
 
 const bir = document.querySelector(".bir");
 const iki = document.querySelector(".iki");
@@ -68,3 +68,4 @@ buton.addEventListener("click", () => {
 //?---------------------------------------------------------------
 
 
+// kodları html sayfasında

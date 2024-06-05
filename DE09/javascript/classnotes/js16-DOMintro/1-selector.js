@@ -53,9 +53,9 @@ baslik[1].textContent = "HALLO";
 //* sadece içerik değişecekse textContent tercih edilir, ama innerHTML de etiketi değiştirebildiği gibi, sadece içeriği de değiştirebilir
 
 
-  //* ======================================================
-//*                  QUERYSELECTOR,QUERYSELECTORALL
-//*======================================================
+//* =====================================================
+//*                QUERYSELECTOR,QUERYSELECTORALL
+//*====================================================
 
 document.querySelector("title").textContent="DOM MANUPULATION 💕"
 
@@ -67,7 +67,7 @@ document.querySelector("p").style.fontSize="50px"
 
 const parag = document.querySelectorAll("p")
 
-// console.log(parag); //NodeList
+console.log(parag); //NodeList
 
 parag[1].style.fontSize="70px"
 
