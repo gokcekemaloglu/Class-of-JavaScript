@@ -108,7 +108,40 @@ buton2.addEventListener("click",()=>{
     // colorL.prepend(listItem) // öne ekle
 })
 
+//! Telefon Örneği
 
+let resim = document.querySelector(".resim")
+let ses1 = document.querySelector(".ses1")
+let ses2 = document.querySelector(".ses2")
+let ara = document.querySelector(".ara")
+let baglat = document.querySelector(".baglat")
+let konus = document.querySelector(".konus")
+let kapat = document.querySelector(".kapat")
+
+// Ara Butonu
+
+ara.addEventListener("click", ()=>{
+    ses2.play()
+    ses2.volume = 0.1
+})
+
+baglat.addEventListener("click", ()=>{
+    ses2.pause()
+    ses1.play()
+    ses1.volume = 0.1
+    resim.src = "./helpers/connect.jpg"
+})
+
+konus.addEventListener("click", ()=>{
+    ses1.pause()
+    resim.src = "./helpers/call.jpg"
+})
+
+kapat.addEventListener("click", ()=>{
+    ses1.pause()
+    ses2.pause()
+    resim.src = "./helpers/images.jpg"
+})
 
 
 
