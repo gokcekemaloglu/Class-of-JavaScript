@@ -34,14 +34,27 @@ let sonuc = document.getElementById("result")
 // buton1.addEventListener("click",clicked2) //çağırma parantezleri olmadan yazılacak, eğer yazarsak parantezi otomatik olarak çağırıp çalıştıracak. biz tıklanınca istiyoruz
 
 //? 4. Yol dışarıdan fonksiyon çağırarak
+// yukarıda ya da aşağıda fonksiyon çağırmamız farketmiyor
+// buton1.addEventListener("click",clicked)
 
-buton1.addEventListener("click",clicked)
+// function clicked () {
+//     sonuc.textContent = "Buton 1 clicked function called from outside"
+// }
 
-function clicked () {
-    sonuc.textContent = "Buton 1 clicked function called from outside"
-}
+//? mouseover - mouseout eventleri
 
+let myImg = document.getElementById("myImage")
+// console.log(myImg);
 
+myImg.addEventListener("mouseover",()=>{
+    myImg.style.width = "300px"
+    console.log("image 300px oldu");
+})
+
+myImg.addEventListener("mouseout",()=>{
+    myImg.style.width = "100px"
+    console.log("image 100px oldu");
+})
 
 
 
