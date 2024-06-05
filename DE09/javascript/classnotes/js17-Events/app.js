@@ -43,18 +43,37 @@ let sonuc = document.getElementById("result")
 
 //? mouseover - mouseout eventleri
 
-let myImg = document.getElementById("myImage")
-// console.log(myImg);
+// let myImg = document.getElementById("myImage")
+// // console.log(myImg);
 
-myImg.addEventListener("mouseover",()=>{
-    myImg.style.width = "300px"
-    console.log("image 300px oldu");
-})
+// myImg.addEventListener("mouseover",()=>{
+//     myImg.style.width = "300px"
+//     console.log("image 300px oldu");
+// })
 
-myImg.addEventListener("mouseout",()=>{
-    myImg.style.width = "100px"
-    console.log("image 100px oldu");
-})
+// myImg.addEventListener("mouseout",()=>{
+//     // myImg.style.width = "100px"
+//     myImg.style.display = "none"
+//     // console.log("image 100px oldu");
+// })
+
+// buton1.addEventListener("click",()=>{
+//     myImg.style.display = "block"
+// })
+
+//? drop down menu
+
+// let secim = document.getElementById("colors")
+
+// secim.addEventListener("change",()=>{
+//     //console.log("değişti");// deeğişikliği yakaladı mı kontrol amaçlı
+//     let selectedColor = secim.value
+//     // console.log(selectedColor); // geğişen rengi yakaladı
+//     document.getElementById("selectedColorP").textContent = `Seçilen Renk : ${selectedColor}`
+//     document.body.style.backgroundColor = selectedColor
+// })
+
+//? Random background color
 
 
 
