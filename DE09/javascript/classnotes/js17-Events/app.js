@@ -110,37 +110,63 @@ buton2.addEventListener("click",()=>{
 
 //! Telefon Örneği
 
-let resim = document.querySelector(".resim")
-let ses1 = document.querySelector(".ses1")
-let ses2 = document.querySelector(".ses2")
-let ara = document.querySelector(".ara")
-let baglat = document.querySelector(".baglat")
-let konus = document.querySelector(".konus")
-let kapat = document.querySelector(".kapat")
+// let resim = document.querySelector(".resim")
+// let ses1 = document.querySelector(".ses1")
+// let ses2 = document.querySelector(".ses2")
 
-// Ara Butonu
+// let ara = document.querySelector(".ara")
+// let baglat = document.querySelector(".baglat")
+// let konus = document.querySelector(".konus")
+// let kapat = document.querySelector(".kapat")
 
-ara.addEventListener("click", ()=>{
-    ses2.play()
-    ses2.volume = 0.1
-})
+// // Ara Butonu
 
-baglat.addEventListener("click", ()=>{
-    ses2.pause()
-    ses1.play()
-    ses1.volume = 0.1
-    resim.src = "./helpers/connect.jpg"
-})
+// ara.addEventListener("click", ()=>{
+//     ses2.play()
+//     ses2.volume = 0.1
+// })
 
-konus.addEventListener("click", ()=>{
-    ses1.pause()
-    resim.src = "./helpers/call.jpg"
-})
+// baglat.addEventListener("click", ()=>{
+//     ses2.pause()
+//     ses1.play()
+//     ses1.volume = 0.1
+//     resim.src = "./helpers/connect.jpg"
+// })
 
-kapat.addEventListener("click", ()=>{
-    ses1.pause()
-    ses2.pause()
-    resim.src = "./helpers/images.jpg"
+// konus.addEventListener("click", ()=>{
+//     ses1.pause()
+//     resim.src = "./helpers/call.jpg"
+// })
+
+// kapat.addEventListener("click", ()=>{
+//     ses1.pause()
+//     ses2.pause()
+//     resim.src = "./helpers/images.jpg"
+// })
+
+//! Input Örneği
+
+let alan = document.getElementById("username")
+let buton3 = document.getElementById("login")
+let user = document.getElementById("displayUsername")
+
+// alan.addEventListener("input",()=>{
+//     let username = alan.value
+//     user.textContent = `Girdiğiniz kullanıcı adı: ${username}`
+// })
+
+let usr = `Mark`
+
+buton3.addEventListener("click",()=>{
+    let username = alan.value
+
+    if (username === usr) {
+        user.textContent = `Girdiğiniz kullanıcı adı: ${username}`
+        alan.value=``
+    } else {
+        user.textContent = `Girdiğiniz kullanıcı adı yanlış, lütfen tekrar deneyin`
+        
+    }
 })
 
 
