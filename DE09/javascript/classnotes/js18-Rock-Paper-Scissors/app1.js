@@ -10,6 +10,7 @@ const GREEN = "#5AB7AC";
 
 //& Variables
 const userSelectImg = document.createElement("img")
+const pcSelectImg = document.createElement("img")
 let userSelection; // kullanıcının seçtiği
 let pcRandom; // pc'nin rastgele ürettiği
 let pcArr = [] // pc seçim dizisi
@@ -35,7 +36,9 @@ const createPCSelection = () => {
     pcArr = ["rock", "paper", "scissor"]
     pcRandom = pcArr[Math.floor(Math.random() * 3)] //1. yöntem
     // pcRandom = pcArr[Math.trunc(Math.random() * 3)] //2. yöntem
-    console.log(pcRandom); //kontrol için yazdık
+    // console.log(pcRandom); //kontrol için yazdık
+    pcSelectImg.src = `./assets/${pcRandom}.png`
+    pcChoiceDiv.appendChild(pcSelectImg)
 }
 
 
