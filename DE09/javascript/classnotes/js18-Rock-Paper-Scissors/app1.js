@@ -30,6 +30,7 @@ const domTopscore = document.getElementById("top-score")
 const modalCardSection = document.querySelector(".modal-card")
 const finalMessagePar = document.getElementById("final-message")
 const playAgainButton = document.getElementById("play-again")
+const modal = document.querySelector(".modal")
 
 //! Selection
 
@@ -43,6 +44,7 @@ selectionArticle.addEventListener("click",(e)=>{
         
     if (userSelection) {
         userSelectImg.src =`./assets/${userSelection}.png`
+        userSelectImg.id = 'you'
         yourChoiceDiv.appendChild(userSelectImg)
     }
     createPCSelection()
@@ -50,28 +52,31 @@ selectionArticle.addEventListener("click",(e)=>{
 
 const createPCSelection = () => {
     pcArr = ["rock", "paper", "scissor"]
+    // pcRandom = 'rock' // hile fonksiyonu
     pcRandom = pcArr[Math.floor(Math.random() * 3)] //1. yöntem
     // pcRandom = pcArr[Math.trunc(Math.random() * 3)] //2. yöntem
     // console.log(pcRandom); //kontrol için yazdık
     pcSelectImg.src = `./assets/${pcRandom}.png`
+    pcSelectImg.id = 'pcs'
     pcChoiceDiv.appendChild(pcSelectImg)
+
     calculateResult()
 }
 
 const calculateResult = () => {
-    console.log(userSelection, pcRandom);
+    // console.log(userSelection, pcRandom);
     if (userSelection === pcRandom) {
         draw()
     } else {
         if (userSelection === "rock") {
-            pcRandom ==="paper" ? youLost() : youWin() //pc paper ise lose, değilse win
+            pcRandom ==="paper" ? youLost(userSelection) : youWin(pcRandom) //pc paper ise lose, değilse win
         } else if (userSelection === "scissor"){
-            pcRandom ==="rock" ? youLost() : youWin() 
+            pcRandom ==="rock" ? youLost(userSelection) : youWin(pcRandom) 
         } else if (userSelection === "paper") {
-            pcRandom ==="scissor" ? youLost() : youWin()
+            pcRandom ==="scissor" ? youLost(userSelection) : youWin(pcRandom)
         }
     }
-    if (pcScoreSpan.textContent ==="10" || yourScoreSpan === "10") {
+    if (pcScoreSpan.textContent === "10" || yourScoreSpan.textContent === "10") {
         openModal()
     }
 }
@@ -82,28 +87,58 @@ const draw = () => {
     messagePar.style.backgroundColor = YELLOW
 }
 
-const youLost = ()=> {
+const youLost = (userSelection)=> {
     // console.log("you lost"); // gerek yok
     messagePar.textContent = "You lost"
     scoreCardSection.style.color = RED
     messagePar.style.backgroundColor = RED
     pcScoreSpan.textContent++
+    document.getElementById('you').setAttribute('src', `./assets/${userSelection}l.png`)
 }
 
-const youWin = ()=> {
+const youWin = (pcRandom)=> {
     // console.log("you win"); // gerek yok
     messagePar.textContent = "You win"
     scoreCardSection.style.color = GREEN
     messagePar.style.backgroundColor = GREEN
     yourScoreSpan.textContent++
+    document.getElementById('pcs').setAttribute('src', `./assets/${pcRandom}l.png`)
 }
 
 const openModal = () => {
-
-    console.log(modalCardSection.classList);
-    
+    modalCardSection.classList.add("show")
+    // console.log(modalCardSection.classList);
+    if (yourScoreSpan.textContent === "10") {
+        finalMessagePar.textContent = "You win 🎉"
+        modal.style.backgroundColor = GREEN
+        playAgainButton.style.color = GREEN
+    } else {
+        finalMessagePar.textContent = "You lost 😯"
+        modal.style.backgroundColor = RED
+        playAgainButton.style.color = RED
+    }    
 }
 
+playAgainButton.addEventListener('click', ()=> {
+    window.location.reload()
+})
 
+//! Top Score check window refresh yapılınca siliniyor
+
+const storedScore = localStorage.getItem("highScore") // localstorage'den veri alır
+console.log(storedScore);
+const topScore = storedScore ? `10-${storedScore}` : "0 - 0"
+domTopscore.innerText = topScore //DOM'a yazdırır
+
+
+function updateTopScore () {
+    if (!storedScore || storedScore > +pcScoreSpan.textContent) {
+        localStorage.setItem("highScore", pcScoreSpan.textContent)
+    }
+}
+
+domTopscore.addEventListener("dblclick",()=>{
+    localStorage.removeItem('highScore')
+})
 
 
