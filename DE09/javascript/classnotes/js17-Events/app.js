@@ -183,5 +183,5 @@ numbers.forEach((number, index)=>{
     })
 })
 
-
+//* ödev Sayı tahmin oyunu yapın
 
