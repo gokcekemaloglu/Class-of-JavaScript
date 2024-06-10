@@ -7,6 +7,7 @@ const previous = document.querySelector(".previous-display")
 const current = document.querySelector(".current-display")
 
 const equal = document.querySelector(".equal")
+const ac = document.querySelector(".ac")
 
 let altEkranText = "" 
 let ustEkranText = ""
@@ -39,17 +40,67 @@ const ekranaHazırlık = (num)=> {
 
 const updateEkran = () => {
     current.textContent = altEkranText
-    previous.textContent = ustEkranText
+    if (islem) {
+        previous.textContent = `${ustEkranText} ${islem}`
+    }
+    else{
+        previous.textContent = ""
+    }
 }
 
 operator.forEach((op)=> {
     op.onclick = ()=> {
+
+        if (altEkranText === "") return
+
+        if (altEkranText && ustEkranText) hesapla()
+
         islem = op.textContent
-        ustEkranText = altEkranText + islem
+        ustEkranText = altEkranText
         altEkranText = ""
         updateEkran()
     }
 })
+
+equal.onclick=()=>{
+    hesapla()
+    updateEkran()
+}
+
+const hesapla = () => {
+    switch (islem) {
+        case "+":
+            sonuc = Number(ustEkranText) + Number(altEkranText)
+            break;
+    
+        case "-":
+            sonuc = ustEkranText - altEkranText
+            break;
+    
+        case "x":
+            sonuc = ustEkranText * altEkranText
+            break;
+    
+        case "÷":
+            sonuc = ustEkranText / altEkranText
+            break;
+    
+        default:
+            break;
+    }
+    altEkranText = sonuc
+    ustEkranText = ""
+    islem=""
+}
+
+ac.onclick=()=>{
+    islem = ""
+    altEkranText = ""
+    ustEkranText = ""
+    updateEkran()
+} 
+
+
 
 
 
