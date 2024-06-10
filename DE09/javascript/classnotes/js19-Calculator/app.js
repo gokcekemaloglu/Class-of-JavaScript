@@ -52,6 +52,10 @@ operator.forEach((op)=> {
     op.onclick = ()=> {
 
         if (altEkranText === "") return
+        //     {
+        //     islem = op.textContent
+        //     updateEkran()
+        // }
 
         if (altEkranText && ustEkranText) hesapla()
 
@@ -65,6 +69,7 @@ operator.forEach((op)=> {
 equal.onclick=()=>{
     hesapla()
     updateEkran()
+    altEkranText = ""
 }
 
 const hesapla = () => {
