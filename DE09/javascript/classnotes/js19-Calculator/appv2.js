@@ -16,12 +16,15 @@ let ustEkranText = ""
 let islem = ""
 
 
-// eşittir kontrolü için isEqualPress=false
-// operator'e basıldı mı kontrolü isOperatorPressed=false
+//! eşittir kontrolü için isEqualPress=false
+//! operator'e basıldı mı kontrolü isOperatorPressed=false
+
 
 num.forEach((number)=>{
     number.onclick = ()=> {
         console.log(number);
+        //! Eğer eşittire basıldıysa ve operatöre basılmadıysa return yap
+
         // altEkranText = number.textContent
         // current.textContent = altEkranText
         // yukarıdaki işlem fonksiyonda yapılması için bu şekilde kullanıldı
@@ -32,6 +35,8 @@ num.forEach((number)=>{
 //! Functions (Ekrana Hazırlık İşlemleri)
 
 const ekranaHazırlık = (num)=> {
+
+    //! Eşittire basıldıysa ve 2. kez operatöre basıldıysa altekranı boşalt, eşittire basıldıyı false yap
     
     // ? kullanıcı 0 girerse, sonrasında 0 ve . dışında bir sayı girerse, ekranda sadece girilen yeni sayı (0 iptal olsun) gözüksün
 
@@ -86,19 +91,34 @@ const updateEkran = () => {
 operator.forEach((op)=> {
     op.onclick = ()=> {
 
+        
         if (altEkranText === "") return
         //     {
-        //     islem = op.textContent
-        //     updateEkran()
-        // }
-
+            //     islem = op.textContent
+            //     updateEkran()
+            // }
+            
         if (altEkranText && ustEkranText) hesapla()
+        //! eğer alt ekran text'i boşsa ve sonuç null ise aşağıdaki işlemi yap
 
         islem = op.textContent
-        ustEkranText = altEkranText
-        altEkranText = ""
+        // ustEkranText = altEkranText
+        ustEkranText = `${sonuc} ${islem}`  //!böyle olmalı
+        // altEkranText = ""
         updateEkran()
+    //! 
+
+    
+        // if (altekranText && (ustekranText || sonuc !== null) && !isEqualPressed) {
+        //     hesapla();
+        //   } else if (isEqualPressed && !isOperatorPressedAfterEqual) {
+        //     isOperatorPressedAfterEqual = true;
+        //   } else {
+        //     sonuc = parseFloat(altekranText);
+        //   }
+
     }
+
 })
 
 equal.onclick=()=>{
