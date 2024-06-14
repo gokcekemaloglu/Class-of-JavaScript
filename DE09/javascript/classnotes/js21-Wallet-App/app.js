@@ -44,6 +44,9 @@ window.addEventListener("load", () => {
     gelirler = Number(localStorage.getItem("gelirler")) || 0
     gelirinizTd.textContent = new Intl.NumberFormat().format(gelirler)
     tarihInput.valueAsDate = new Date()
+    harcamaListesi = JSON.parse(localStorage.getItem("harcamalar")) || []
+    harcamaListesi.forEach((harcama) => harcamaYaz(harcama))
+    hesapla()
 
 })
 
@@ -68,6 +71,7 @@ harcamaFormu.addEventListener("submit", (e) => {
     tarihInput.valueAsDate = new Date()
     localStorage.setItem("harcamalar", JSON.stringify(harcamaListesi))
     harcamaYaz(yeniHarcama)
+    hesapla()
 })
 
 //* DOM'a yazma fonksiyonu
@@ -109,7 +113,13 @@ const harcamaYaz  = ({id, tarih, miktar, alan}) => {
 
     // harcamaBody.append(tr) // sona ekler
     harcamaBody.prepend(tr) // üste ekler
+}
 
+const hesapla = () => {
+    const giderler = harcamaListesi.reduce((toplam, harcama) => toplam + Number(harcama.miktar),0)
+    // console.log(giderler);
+
+    giderinizTd.textContent = new Intl.NumberFormat().format(giderler)
 }
 
 
