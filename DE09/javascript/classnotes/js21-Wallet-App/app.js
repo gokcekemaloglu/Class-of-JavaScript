@@ -43,37 +43,37 @@ ekleFormu.addEventListener("submit", (e) => {
 
 })
 
-//? Sayfa ilk açıldığında varsa local storage verilerini almak ve ekrana yazdırmak için
+//^ Sayfa ilk açıldığında varsa local storage verilerini almak ve ekrana yazdırmak için
 
 window.addEventListener("load", () => {
     gelirler = Number(localStorage.getItem("gelirler")) || 0
-    tarihInput.valueAsDate = new Date()
+    tarihInput.valueAsDate = new Date() 
     harcamaListesi = JSON.parse(localStorage.getItem("harcamalar")) || [] //Harcamaları DOM'a yazdırır
     harcamaListesi.forEach((harcama) => harcamaYaz(harcama)) //
     hesapla()
 
 })
 
-//? Harcamaların girilmesi kısmı
+//^ Harcamaların girilmesi kısmı
 
 harcamaFormu.addEventListener("submit", (e) => {
     e.preventDefault() // reload'u önler
     // console.log(tarihInput.value);
     
-    const yeniHarcama = {
+    const yeniHarcama = { // Girilen değerlerle bir harcama objesi oluşturur
         id: new Date().getTime(), //! sistem saatini milisaniye olarak verir
-        tarih: new Date(tarihInput.value).toLocaleDateString(),
+        tarih: new Date(tarihInput.value).toLocaleDateString(), //Tarihi 14.06.2024 şeklinde yazmak için
         miktar: harcamaInput.value,
         alan: harcamaAlaniInput.value,
         
     }
     // console.log(yeniHarcama);
     // console.log(yeniHarcama.tarih);
-    harcamaListesi.push(yeniHarcama)
+    harcamaListesi.push(yeniHarcama) // her yeni harcamayı listeye ekler
     console.log(harcamaListesi);
-    harcamaFormu.reset()
-    tarihInput.valueAsDate = new Date()
-    localStorage.setItem("harcamalar", JSON.stringify(harcamaListesi))
+    harcamaFormu.reset() // Formdaki alanları siler
+    tarihInput.valueAsDate = new Date() // sayfa açıldığında günün tarihini HTML'e yazar
+    localStorage.setItem("harcamalar", JSON.stringify(harcamaListesi)) // harcama listesini local storage a yazar
     harcamaYaz(yeniHarcama)
     hesapla()
 })
@@ -90,14 +90,16 @@ const harcamaYaz  = ({id, tarih, miktar, alan}) => {
     //     <td><i id=${id} class="fa-solid fa-trash-can text-danger"  type="button"></i></td>
     // </tr>    
     // `
-    const tr = document.createElement("tr")
+    const tr = document.createElement("tr") // tr elementi oluşturur
 
+    //tr nin içindeki td elemenlerini oluşturur
     const appendTd = (content) => {
         const td = document.createElement("td")
         td.textContent = content
         return td
     }
 
+    //Çöp kutusunun içeriğini oluşturur
     const createLastTd = () => { // burası appendTd de oluşturulamıyor, çöp butonu çıkması için yapıyoruz, aşağıya gönderiyoruz
         const td = document.createElement("td")
         const i = document.createElement("i")
@@ -107,6 +109,8 @@ const harcamaYaz  = ({id, tarih, miktar, alan}) => {
         td.appendChild(i)
         return td
     }
+
+    // oluşturulan 4 td'yi tr'ye ekler
 
     tr.append(
         appendTd(tarih),
@@ -125,7 +129,7 @@ const harcamaYaz  = ({id, tarih, miktar, alan}) => {
 const hesapla = () => {
     const giderler = harcamaListesi.reduce((toplam, harcama) => toplam + Number(harcama.miktar),0)
     // console.log(giderler);
-    gelirinizTd.textContent = new Intl.NumberFormat().format(gelirler)
+    gelirinizTd.textContent = new Intl.NumberFormat().format(gelirler) //1000 ayıraçları ve desimal işareti için kullanıcının bölgesel ayarlarını kullanmak için // bölgesel olarak yazdırıyor
     giderinizTd.textContent = new Intl.NumberFormat().format(giderler)
     kalanTd.textContent = gelirler - giderler
     // console.log(giderinizTd);
@@ -143,6 +147,7 @@ const hesapla = () => {
 harcamaBody.addEventListener("click", (e) => {
     if(e.target.classList.contains("fa-trash-can")) {
         // console.log("clicked"); //çalışıyor mu diye kontrol etmek için
+        
         // DOM'dan tr (ilgili satırı) siler
         e.target.parentElement.parentElement.remove() 
 
@@ -168,6 +173,7 @@ temizleBtn.addEventListener("click", () => {
         // localStorage.clear() //! Localstorage'daki herşeyi siler
         localStorage.removeItem("gelirler") //! Localstorage'daki gelirleri siler
         localStorage.removeItem("harcamalar") //! Localstorage'daki harcamaları siler
+        hesapla() // herşey silindikten sonra tekrar hesaplar ve sıfırlar (DOM'daki hesaplamayı yapmak için)
     }
 })
 
