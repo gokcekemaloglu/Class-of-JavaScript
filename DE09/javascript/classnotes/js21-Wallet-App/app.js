@@ -22,6 +22,10 @@ const harcamaAlaniInput = document.getElementById("harcama-alani")
 const tarihInput = document.getElementById("tarih")
 const harcamaInput = document.getElementById("miktar")
 
+//^ Harcama  Tablosu
+
+const harcamaBody = document.getElementById("harcama-body")
+
 
 //? Ekle Formu
 
@@ -44,18 +48,17 @@ window.addEventListener("load", () => {
 })
 
 
-//* DOM
 
 harcamaFormu.addEventListener("submit", (e) => {
     e.preventDefault() // reload'u önler
     // console.log(tarihInput.value);
-
+    
     const yeniHarcama = {
         id: new Date().getTime(), //! sistem saatini milisaniye olarak verir
         tarih: new Date(tarihInput.value).toLocaleDateString(),
         miktar: harcamaInput.value,
         alan: harcamaAlaniInput.value,
-
+        
     }
     // console.log(yeniHarcama);
     // console.log(yeniHarcama.tarih);
@@ -63,8 +66,51 @@ harcamaFormu.addEventListener("submit", (e) => {
     console.log(harcamaListesi);
     harcamaFormu.reset()
     tarihInput.valueAsDate = new Date()
+    localStorage.setItem("harcamalar", JSON.stringify(harcamaListesi))
+    harcamaYaz(yeniHarcama)
 })
 
+//* DOM'a yazma fonksiyonu
+
+const harcamaYaz  = ({id, tarih, miktar, alan}) => {
+    // const {id, tarih, miktar, alan} = yeniHarcama // data destruction
+    // harcamaBody.innerHTML += `
+    // <tr>
+    //     <td>${tarih}</td>
+    //     <td>${alan}</td>
+    //     <td>@${miktar}</td>
+    //     <td><i id=${id} class="fa-solid fa-trash-can text-danger"  type="button"></i></td>
+    // </tr>    
+    // `
+    const tr = document.createElement("tr")
+
+    const appendTd = (content) => {
+        const td = document.createElement("td")
+        td.textContent = content
+        return td
+    }
+
+    const createLastTd = () => { // burası appendTd de oluşturulamıyor, çöp butonu çıkması için yapıyoruz, aşağıya gönderiyoruz
+        const td = document.createElement("td")
+        const i = document.createElement("i")
+        i.id = id;
+        i.className = "fa-solid fa-trash-can text-danger"
+        i.type = "button"
+        td.appendChild(i)
+        return td
+    }
+
+    tr.append(
+        appendTd(tarih),
+        appendTd(alan),
+        appendTd(miktar),
+        createLastTd()  // burası çöp kutusunu yakalıyor
+    )
+
+    // harcamaBody.append(tr) // sona ekler
+    harcamaBody.prepend(tr) // üste ekler
+
+}
 
 
 
