@@ -166,7 +166,7 @@ harcamaBody.addEventListener("click", (e) => {
 //^ Bilgileri temizle butonu fonksiyonu
 
 temizleBtn.addEventListener("click", () => {
-    if (confirm("Tüm bilgileriilmek istediğinize emin misiniz?")) {
+    if (confirm("Tüm bilgileri silmek istediğinize emin misiniz?")) {
         harcamaListesi = [] // Harcama Listesini boşaltır
         gelirler = 0 // gelirler değişkenini sıfırlar
         harcamaBody.innerHTML = "" //DOM'daki veriyi siler
