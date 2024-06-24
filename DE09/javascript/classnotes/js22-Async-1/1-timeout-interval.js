@@ -38,22 +38,22 @@
 //*Asenkron (setTimeout) 1 seferlik
 //******************************** */
 
-console.log("merhaba");
+// console.log("merhaba");
 
-setTimeout (() => {
-    console.log("Aleyküm selam");
-}, 2000)
+// setTimeout (() => {
+//     console.log("Aleyküm selam");
+// }, 2000)
 
-console.log("selamun aleyküm");
+// console.log("selamun aleyküm");
 
 
-setTimeout (() => {
-    console.log("Naber");
-}, 1000)
+// setTimeout (() => {
+//     console.log("Naber");
+// }, 1000)
 
-setTimeout (() => {
-    console.log("İyi misin?");
-}, 1000)
+// setTimeout (() => {
+//     console.log("İyi misin?");
+// }, 1000)
 
 //!-Selamun Aleyküm-Aleyküm Selam- Naber  çalışır, 3. nün süresi 1.den azsa, 2-3-1 sırasında çalışır
 //!settimeout müsait zamanda ortaya çıkar, onun sırası geçtiğinde alttaki işlemler bitince çalışır
@@ -63,6 +63,27 @@ setTimeout (() => {
 
 //?setInterval non-blocking (kod burada takılı kalmaz alttaki kodlarda çalışır)
 
+// let sayac = 0
+
+// const interval1 = setInterval(() => {
+//     console.log(++sayac);
+//     if(sayac === 7){
+//         clearInterval(interval1)
+//     }
+// },1000)
+
+
+// //? callback hell
+
+setTimeout(() => {
+    console.log("ayse:s.a. ahmet");
+    setTimeout(() => {
+      console.log("ahmet:a.s. ayse nasılsın");
+      setTimeout(() => {
+        console.log("ayse:iyiyim sağol");
+      }, 1000);
+    }, 1000);
+  }, 1000);
 
 
 
