@@ -37,3 +37,14 @@ document.querySelector("input").oninput = (e) =>{
     showScreen(veri)
 }
 
+
+//! Bayraklara tıklanınca o ülkenin yemekleri gelsin
+
+document.querySelectorAll("img").forEach((a)=>
+    (a.onclick= ()=>{
+        // console.log(a.id);
+
+        
+    })
+)
+
