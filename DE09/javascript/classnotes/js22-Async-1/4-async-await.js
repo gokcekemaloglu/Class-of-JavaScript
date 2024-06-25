@@ -23,11 +23,28 @@
 const defaultImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/220px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg";
 
 const getData = async () => {
-    const res = await fetch("https://api.tvmaze.com/search/shows?q=girls")
+    try{
+           const res = await fetch("https://api.tvmaze.com/search/shows?q=girls")
+
+    //? Error handling
+
+    if (!res.ok) {
+        throw new Error(`url'de hata var ${res.status}`)
+        console.log("hata");
+    }
 
     const veri = await res.json()
 
-    ekranaBastir(veri)
+    ekranaBastir(veri) 
+    } catch(error){
+        console.log(error);
+        console.log("try-catch sayesinde kod devam ediyor");
+        document.querySelector("section").innerHTML = `
+        <h1>${error}</h1>
+        <img src="./img/404.png" alt="default image">
+        `
+    }
+
 }
 
 getData()
@@ -41,7 +58,7 @@ const ekranaBastir = (data) => {
         document.querySelector("section").innerHTML += `
         
         <h1 class="text-danger">${program.show.name}</h1>
-
+        
         <img src="${program.show.image?.medium || defaultImage}"/>
                 
         `;
@@ -50,6 +67,6 @@ const ekranaBastir = (data) => {
 
 }
 
-// şimdilik error yapmadık
+// şimdilik error yapmadık-ertesi gün try-catchle error'u da ekledik
 
 
