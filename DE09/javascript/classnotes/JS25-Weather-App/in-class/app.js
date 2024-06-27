@@ -6,6 +6,9 @@ const form = document.querySelector("form")
 const input = document.querySelector("form input.form-control")
 const cardContainer = document.getElementById("card-container")
 const alertMessage = document.getElementById("alert")
+const locate = document.getElementById("locate")
+const locationDiv = document.getElementById("userLocation")
+const langButton = document.querySelector(".language")
 
 //! Variables
 
@@ -14,6 +17,7 @@ let url; // api isteği için kullanılacak
 let units = "metric" // fahrenheit için 'impeiral' yazılması
 let lang = "en" // Almanca için 'de' yazılması
 let cities =[]
+let userLocation = false
 
 // console.log(input);
 
@@ -21,7 +25,8 @@ let cities =[]
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log((input.value));
+    // console.log((input.value));
+    console.log(e.target);
     if (input.value) {
         const city = input.value
         url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&lang=${lang}&appid=${apiKey}`;
@@ -31,12 +36,38 @@ form.addEventListener("submit", (e) => {
     form.reset() // formu sıfırlar
 })
 
+//? browserdan kullanıcının lokasyonunu almak için kullanılan metod(location yakalamak için)
+locate.addEventListener("click", () => {
+    navigator.geolocation.getCurrentPosition(({coords}) => {
+        console.log(coords);
+        const {latitude,longitude} = coords 
+        url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${units}&lang=${lang}&appid=${apiKey}`;
+        userLocation = true
+        getWeatherData()
+        // console.log(navigator.language);
+    });
+})
+
+langButton.addEventListener("click", (e) => {
+    console.log(e.target.textContent);
+    if (e.target.textContent ==="DE") {
+        input.setAttribute("placeholder", "Suche nach einer Stadt")
+        lang = "de"
+    } else if (e.target.textContent ==="EN"){
+        input.setAttribute("placeholder", "Search for a city")
+        lang = "en"
+    }
+})
+
 //! Functions
 
 const getWeatherData = async() => {
     try {
-        const response = await fetch(url)
-        const data = await response.json()
+        // const response = await fetch(url) //* fetch ile
+        // const data = await response.json()
+        // console.log(data);
+        // const response = await axios(url) //* axios ile
+        const {data} = await axios(url) //* axios ile
         console.log(data);
         //? data destructure
         const { main, name, weather, sys } = data
@@ -66,9 +97,28 @@ const getWeatherData = async() => {
             </div>        
         
             `
-        cardContainer.prepend(card) // burada append arkasına ekliyor
+
+            if (userLocation) {
+                locationDiv.appendChild(card)
+                userLocation = false
+            } else {
+                cardContainer.prepend(card) // burada append arkasına ekliyor
         // cardContainer.innerHTML += card //başka bir yöntem olabilir ama çalışmadı
 
+            }
+
+ 
+        //! remove cities
+            const deleteButton = document.querySelectorAll(".bi-x-circle")
+            console.log(deleteButton);
+            deleteButton.forEach((button) => {
+                button.onclick = () => {
+                    console.log(button.closest(".col").id); 
+                    cities.splice(cities.indexOf(button.closest(".col").id),1) //! diziden eleman silme
+                    // cities = cities.filter((city) => city !== button.closest(".col").id)
+                    button.closest(".col").remove() //! DOM'dan siler
+                }
+            })
     
         } else {
             alertMessage.textContent=`You already know the weather for ${name}, Please search for another city 😉`;
@@ -80,8 +130,8 @@ const getWeatherData = async() => {
         }
 
 } catch (error) {
-        console.error("Error", error);
-    }
+
+}
 }
 
 
