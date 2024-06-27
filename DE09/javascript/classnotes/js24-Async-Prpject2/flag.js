@@ -20,7 +20,7 @@ const printScreen = (countries) => {
     countries.forEach((a)=>{
 
         // console.log(a);
-        // console.log(Object.values(a.languages));
+        console.log(Object.values(a.languages));
         // console.log(Object.values(a.currencies)[0].name);
 
         devletlerDiv.innerHTML += `
@@ -30,16 +30,18 @@ const printScreen = (countries) => {
             <div class="card-body">
                 <h5 class="card-title">${a.name.common}  </h5>
     
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">  
+                        <i class="fas fa-lg fa-landmark"></i> ${a.capital}  
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fas fa-lg fa-comments"></i> ${Object.values(a.languages)}
+                    </li>
+                    <li class="list-group-item"> 
+                        <i class="fas fa-lg fa-money-bill-wave"></i> ${Object.values(a.currencies)[0].name} 
+                    </li>
   
-                            <i class="fas fa-lg fa-landmark"></i> ${a.capital}  </li>
-                            <li class="list-group-item">
-                            <i class="fas fa-lg fa-comments"></i> ${Object.values(a.languages)}
-                        </li>
-                        <li class="list-group-item"> <i class="fas fa-lg fa-money-bill-wave"></i> ${Object.values(a.currencies)[0].name} </li>
-  
-                    </ul>
+                </ul>
             </div>
         </div> 
         
