@@ -139,7 +139,7 @@ function pieceUrun() {
 
             //! sepettekiler dizisindeki adet'i de güncelle
 
-            sepettekiler.map((urun)=>{
+            sepettekiler.map((urun)=>{ 
             // console.log(minus.closest(".card-body").querySelector("h5").textContent);
             if(urun.name === minus.closest(".card-body").querySelector("h5").textContent){
                 // urun.piece = urun.piece + 1  // alternatif yol
@@ -167,11 +167,11 @@ function calculateTotal() {
     const urunToplam = Array.from(document.querySelectorAll(".product-total")).reduce((acc,item)=>acc+Number(item.textContent),0)
     console.log(urunToplam);
 
-    document.querySelector(".productstoplam").textContent = urunToplam
+    document.querySelector(".productstoplam").textContent = urunToplam.toFixed(2)
 
     document.querySelector(".kargo").textContent = shipping
     document.querySelector(".vergi").textContent = (urunToplam*tax).toFixed(2)
-    document.querySelector(".toplam").textContent = urunToplam*tax + shipping + urunToplam
+    document.querySelector(".toplam").textContent = (urunToplam*tax + shipping + urunToplam).toFixed(2)
 } 
 
 
