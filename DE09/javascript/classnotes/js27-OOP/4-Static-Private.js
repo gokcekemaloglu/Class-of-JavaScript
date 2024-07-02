@@ -85,13 +85,7 @@ class Book {
   console.log(++Book.counter);
   
   
-  
-  
-  
-  
-  
-  
-  
+   
   
   //!ABSTRACT A ÖRNEK
   
