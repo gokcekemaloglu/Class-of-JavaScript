@@ -29,8 +29,11 @@ export {increase, decrease, myName}
 //* default export (sayfanın tamamını export etmek için)
 //? Bir sayfada 1 tane default export olabilir
 //? Tüm yapı tek seferde export edilir
+//? import ederken istediğimiz isimle import edip kullanabiliriz
+
 
 //^ 1.Yol
+
 // function ugurla(){
 //     console.log("görüşmek üzere JS")
 // }
@@ -38,6 +41,7 @@ export {increase, decrease, myName}
 // export default ugurla;
 
 //^ 2.Yol
+
 export default function ugurla(){
     console.log("görüşmek üzere JS")
 }
