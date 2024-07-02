@@ -26,3 +26,18 @@ const myName = "Felix"
 
 export {increase, decrease, myName}
 
+//* default export (sayfanın tamamını export etmek için)
+//? Bir sayfada 1 tane default export olabilir
+//? Tüm yapı tek seferde export edilir
+
+//^ 1.Yol
+// function ugurla(){
+//     console.log("görüşmek üzere JS")
+// }
+
+// export default ugurla;
+
+//^ 2.Yol
+export default function ugurla(){
+    console.log("görüşmek üzere JS")
+}
